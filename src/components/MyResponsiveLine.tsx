@@ -113,11 +113,16 @@ const MyResponsiveLine = ({ data }: { data: Serie[] }) => (
     <ResponsiveLine
         data={data}
         theme={theme}
-        margin={{ top: 50, right: 150, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 150, bottom: 70, left: 60 }}
         curve="basis"
         enablePoints={false}
         enableGridX={false}
         enableGridY={false}
+        yScale={{
+            max: 5,
+            min: 1,
+            type: 'linear',
+        }}
         axisBottom={{
             tickSize: 5,
             tickPadding: 5,
@@ -148,6 +153,7 @@ const MyResponsiveLine = ({ data }: { data: Serie[] }) => (
                 itemOpacity: 0.75,
                 symbolSize: 12,
                 symbolShape: 'circle',
+                toggleSerie: true,
                 symbolBorderColor: 'rgba(255, 255, 0, .5)',
                 effects: [
                     {
