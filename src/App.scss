@@ -1,4 +1,17 @@
-.App {
-  height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   background: black;
+  color: white;
+
+  h1 {
+    height: 60px;
+    margin: 0;
+  }
+
+  .myResponsiveLineWrapper {
+    height: calc(100vh - 60px);
+  }
+
 }
