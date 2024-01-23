@@ -1,5 +1,3 @@
-import { ResponsiveLine, Serie } from '@nivo/line'
-
 const theme = {
     background: '#000000',
     text: {
@@ -21,6 +19,7 @@ const theme = {
                 fill: '#cbcbcb',
                 outlineWidth: 0,
                 outlineColor: 'transparent',
+                rotation: 90,
             },
         },
         ticks: {
@@ -109,64 +108,4 @@ const theme = {
     },
 }
 
-const MyResponsiveLine = ({ data }: { data: Serie[] }) => (
-    <ResponsiveLine
-        data={data}
-        theme={theme}
-        margin={{ top: 50, right: 150, bottom: 70, left: 60 }}
-        curve="basis"
-        enablePoints={false}
-        enableGridX={false}
-        enableGridY={false}
-        yScale={{
-            max: 5,
-            min: 1,
-            type: 'linear',
-        }}
-        axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Date',
-            legendOffset: 36,
-            legendPosition: 'middle',
-        }}
-        axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Intensity',
-            legendOffset: -40,
-            legendPosition: 'middle',
-        }}
-        legends={[
-            {
-                anchor: 'bottom-right',
-                direction: 'column',
-                justify: false,
-                translateX: 100,
-                translateY: 0,
-                itemsSpacing: 0,
-                itemDirection: 'left-to-right',
-                itemWidth: 80,
-                itemHeight: 20,
-                itemOpacity: 0.75,
-                symbolSize: 12,
-                symbolShape: 'circle',
-                toggleSerie: true,
-                symbolBorderColor: 'rgba(255, 255, 0, .5)',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
-                            itemOpacity: 1,
-                        },
-                    },
-                ],
-            },
-        ]}
-    />
-)
-
-export default MyResponsiveLine
+export default theme

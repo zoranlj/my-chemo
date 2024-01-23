@@ -1,14 +1,14 @@
 import React from 'react'
 import './App.scss'
-import MyResponsiveLine from './components/MyResponsiveLine'
-import data from './data'
+import LineChart from './components/LineChart'
+import data from './data/data'
 
 function App() {
     return (
         <div className="container">
             <h1>Zoran's CAPOX side effects</h1>
-            <div className="myResponsiveLineWrapper">
-                <MyResponsiveLine data={data} />
+            <div className="lineChartWrapper">
+                <LineChart data={data} />
             </div>
         </div>
     )
