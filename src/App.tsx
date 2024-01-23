@@ -32,7 +32,7 @@ function App() {
     return (
         <div className="container">
             <header>
-                <h1>Zoran's CAPOX side effects</h1>
+                <h1>CAPOX side effects</h1>
             </header>
             <div className="lineChartWrapper">
                 <LineChart data={data} />
