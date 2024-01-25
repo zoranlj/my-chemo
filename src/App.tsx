@@ -6,6 +6,7 @@ import data from './data/data'
 function App() {
     // check header height
     const checkHeaderHeight = () => {
+        console.log('checkHeaderHeight')
         // select header element
         const header = document.querySelector('header')
         // get rendered styles
@@ -34,9 +35,9 @@ function App() {
             <header>
                 <h1>CAPOX side effects</h1>
             </header>
-            <div className="lineChartWrapper">
+            <main className="lineChartWrapper">
                 <LineChart data={data} />
-            </div>
+            </main>
         </div>
     )
 }
