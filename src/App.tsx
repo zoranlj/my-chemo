@@ -6,7 +6,6 @@ import data from './data/data'
 function App() {
     // check header height
     const checkHeaderHeight = () => {
-        console.log('checkHeaderHeight')
         // select header element
         const header = document.querySelector('header')
         // get rendered styles
