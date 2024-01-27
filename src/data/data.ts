@@ -19,7 +19,7 @@ const addAverage = (series: Serie[]) => {
 const data: Serie[] = [
     {
         id: 'nerve-pain',
-        color: '#8ABEEA',
+        color: '#066dc7',
         data: [
             {
                 x: '18.01.2023.',
@@ -65,7 +65,7 @@ const data: Serie[] = [
     },
     {
         id: 'abdominal pain',
-        color: '#29CCB5',
+        color: '#047966',
         data: [
             {
                 x: '18.01.2023.',
