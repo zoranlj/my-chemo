@@ -6,6 +6,7 @@ const LineChart = ({ data }: { data: Serie[] }) => (
         data={data}
         theme={theme}
         margin={{ top: 16, right: 32, bottom: 96, left: 56 }}
+        colors={{ datum: 'color' }}
         curve="basis"
         enablePoints={false}
         enableGridX={false}

@@ -5,6 +5,7 @@ const addAverage = (series: Serie[]) => {
     const averageSerie: Serie = {
         id: 'average',
         data: [],
+        color: '#FFF',
     }
     forEach(series[0].data, (sideEffect, index) => {
         averageSerie.data.push({
@@ -18,6 +19,7 @@ const addAverage = (series: Serie[]) => {
 const data: Serie[] = [
     {
         id: 'nerve-pain',
+        color: '#8ABEEA',
         data: [
             {
                 x: '18.01.2023.',
@@ -63,6 +65,7 @@ const data: Serie[] = [
     },
     {
         id: 'abdominal pain',
+        color: '#29CCB5',
         data: [
             {
                 x: '18.01.2023.',
