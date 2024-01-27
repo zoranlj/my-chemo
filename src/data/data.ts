@@ -12,7 +12,7 @@ const addAverage = (series: Serie[]) => {
             y: sumBy(series, (s) => s.data[index].y as number) / series.length,
         })
     })
-    return [averageSerie, ...series]
+    return [...series, averageSerie]
 }
 
 const data: Serie[] = [
