@@ -18,4 +18,24 @@
   .lineChartWrapper {
     height: calc(100vh - var(--sl-header-height));
   }
+
+  .fine {
+    color: lightseagreen;
+  }
+
+  .mild {
+    color: green;
+  }
+
+  .moderate {
+    color: yellow;
+  }
+
+  .severe {
+    color: orange;
+  }
+
+  .worst {
+    color: red;
+  }
 }

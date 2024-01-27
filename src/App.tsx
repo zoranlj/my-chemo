@@ -10,9 +10,13 @@ function App() {
     return (
         <div className="container">
             <header>
-                <h1>CAPOX side effects</h1>
+                <h1 className="fine">CAPOX side effects</h1>
                 <h6>
-                    Pain Scale: 1 fine, 2 mild, 3 moderate, 4 severe, 5 worst.
+                    Pain Scale: <span className="fine">1 fine</span>,{' '}
+                    <span className="mild">2 mild</span>,{' '}
+                    <span className="moderate">3 moderate</span>,{' '}
+                    <span className="severe">4 severe</span>,{' '}
+                    <span className="worst">5 worst</span>
                 </h6>
             </header>
             <main className="lineChartWrapper">
