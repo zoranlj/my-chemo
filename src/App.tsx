@@ -12,7 +12,7 @@ function App() {
             <header>
                 <h1>CAPOX side effects</h1>
                 <h6>
-                    Pain Scale: 1 fine, 2 mild, 3 moderate, 4 severe, 5 worst
+                    Pain Scale: 1 fine, 2 mild, 3 moderate, 4 severe, 5 worst.
                 </h6>
             </header>
             <main className="lineChartWrapper">
