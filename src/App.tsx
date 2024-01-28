@@ -1,22 +1,22 @@
 import React from 'react'
 import './App.scss'
 import LineChart from './components/LineChart'
-import data from './data/data'
+import TodayFeel from './components/TodayFeel'
 import useSetHeaderHeight from './hooks/useSetHeaderHeight'
+import data from './data/data'
 
 function App() {
-    // set header height
     useSetHeaderHeight()
     return (
         <div className="container">
             <header>
-                <h1 className="fine">CAPOX side effects</h1>
+                <TodayFeel data={data} />
                 <h6>
-                    Pain Scale: <span className="fine">1 fine</span>,{' '}
-                    <span className="mild">2 mild</span>,{' '}
-                    <span className="moderate">3 moderate</span>,{' '}
-                    <span className="severe">4 severe</span>,{' '}
-                    <span className="worst">5 worst</span>
+                    <span className="allGood">1 - All good</span>,{' '}
+                    <span className="mild">2 - Mild</span>,{' '}
+                    <span className="moderate">3 - Moderate</span>,{' '}
+                    <span className="severe">4 - Severe</span>,{' '}
+                    <span className="worst">5 - Worst</span>
                 </h6>
             </header>
             <main className="lineChartWrapper">
