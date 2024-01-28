@@ -16,7 +16,7 @@
   }
 
   .lineChartWrapper {
-    height: calc(100vh - var(--sl-header-height));
+    height: calc(100dvh - var(--sl-header-height));
   }
 
   .fine {
@@ -24,7 +24,7 @@
   }
 
   .mild {
-    color: green;
+    color: greenyellow;
   }
 
   .moderate {
