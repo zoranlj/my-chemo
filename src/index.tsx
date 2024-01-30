@@ -10,7 +10,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyCwZWagj7E9hEriK3dvDRe4jrulCN9qGAc',
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: 'my-chemo.firebaseapp.com',
     databaseURL: 'https://my-chemo-default-rtdb.firebaseio.com',
     projectId: 'my-chemo',
