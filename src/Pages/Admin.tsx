@@ -8,7 +8,8 @@ export const Admin = () => {
     const auth = getAuth()
     const { series } = useContext(Context)
     console.log(series)
-    async function handleSignOut() {
+
+    const handleSignOut = async () => {
         try {
             await signOut(auth)
         } catch (error) {
