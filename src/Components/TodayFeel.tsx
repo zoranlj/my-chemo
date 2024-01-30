@@ -7,7 +7,7 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
 
     return (
         <>
-            {todayFeel >= 1 && todayFeel < 2 && (
+            {((todayFeel >= 1 && todayFeel < 2) || !data.length) && (
                 <h1 className="allGood">All good</h1>
             )}
             {todayFeel >= 2 && todayFeel < 3 && <h1 className="mild">Mild</h1>}
