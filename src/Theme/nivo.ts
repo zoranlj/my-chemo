@@ -1,4 +1,4 @@
-const theme = {
+const nivo = {
     background: '#000000',
     text: {
         fontSize: 11,
@@ -108,4 +108,4 @@ const theme = {
     },
 }
 
-export default theme
+export default nivo

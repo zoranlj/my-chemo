@@ -1,10 +1,10 @@
 import { ResponsiveLine, Serie } from '@nivo/line'
-import theme from '../Theme/theme'
+import nivo from '../Theme/nivo'
 
 const LineChart = ({ data }: { data: Serie[] }) => (
     <ResponsiveLine
         data={data}
-        theme={theme}
+        theme={nivo}
         margin={{ top: 16, right: 32, bottom: 96, left: 56 }}
         colors={{ datum: 'color' }}
         curve="basis"
