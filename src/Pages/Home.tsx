@@ -1,8 +1,8 @@
-import TodayFeel from '../components/TodayFeel'
+import TodayFeel from '../Components/TodayFeel'
 import data from '../data/data'
-import LineChart from '../components/LineChart'
+import LineChart from '../Components/LineChart'
 import React from 'react'
-import useSetHeaderHeight from '../hooks/useSetHeaderHeight'
+import useSetHeaderHeight from '../Hooks/useSetHeaderHeight'
 export const Home = () => {
     useSetHeaderHeight()
 

@@ -33,7 +33,7 @@ const Copyright = (props: any) => {
     )
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
+// TODO remove, this demo shouldn't need to reset the Theme.
 const defaultTheme = createTheme()
 
 export const SignIn = () => {
@@ -99,14 +99,8 @@ export const SignIn = () => {
                             label="Password"
                             type="password"
                             id="password"
-                            autoComplete="current-password"
+                            autoComplete="password"
                             onChange={(e) => {setPassword(e.target.value)}}
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox value="remember" color="primary" />
-                            }
-                            label="Remember me"
                         />
                         <Button
                             type="submit"

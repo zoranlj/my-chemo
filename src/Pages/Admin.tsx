@@ -1,4 +1,6 @@
 import { signOut, getAuth } from 'firebase/auth'
+import Button from '@mui/material/Button'
+import React from 'react'
 export const Admin = () => {
     const auth = getAuth()
     async function handleSignOut() {
@@ -12,13 +14,18 @@ export const Admin = () => {
     return (
         <div>
             <h1>This is the admin in page</h1>
-            <button
+
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
                 onClick={() => {
                     void handleSignOut()
                 }}
             >
                 Sign Out
-            </button>
+            </Button>
         </div>
     )
 }
