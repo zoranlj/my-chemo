@@ -1,28 +1,35 @@
 import React from 'react'
 import './App.scss'
-import LineChart from './components/LineChart'
-import TodayFeel from './components/TodayFeel'
-import useSetHeaderHeight from './hooks/useSetHeaderHeight'
-import data from './data/data'
+import { Home } from './Pages/Home'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Protected } from './Pages/Protected'
+import { Signin } from './Pages/Signin'
+import { AuthContext } from './Context/AuthContext'
 
 function App() {
-    useSetHeaderHeight()
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Home />,
+        },
+        {
+            path: '/home',
+            element: (
+                <Protected>
+                    <Home />
+                </Protected>
+            ),
+        },
+        {
+            path: '/signin',
+            element: <Signin></Signin>,
+        },
+    ])
+
     return (
-        <div className="container">
-            <header>
-                <TodayFeel data={data} />
-                <h6>
-                    <span className="allGood">1 - All good</span>,{' '}
-                    <span className="mild">2 - Mild</span>,{' '}
-                    <span className="moderate">3 - Moderate</span>,{' '}
-                    <span className="severe">4 - Severe</span>,{' '}
-                    <span className="worst">5 - Worst</span>
-                </h6>
-            </header>
-            <main className="lineChartWrapper">
-                <LineChart data={data} />
-            </main>
-        </div>
+        <AuthContext>
+            <RouterProvider router={router}></RouterProvider>
+        </AuthContext>
     )
 }
 
