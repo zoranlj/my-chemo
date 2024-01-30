@@ -3,7 +3,7 @@ import data from '../data/data'
 import LineChart from '../components/LineChart'
 import React from 'react'
 import useSetHeaderHeight from '../hooks/useSetHeaderHeight'
-export function Home() {
+export const Home = () => {
     useSetHeaderHeight()
 
     return (

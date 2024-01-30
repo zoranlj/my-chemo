@@ -1,6 +1,6 @@
 import React from 'react'
 import { Home } from '../Pages/Home'
-import { Signin } from '../Pages/Signin'
+import { SignIn } from '../Pages/Signin'
 import { Protected } from './Protected'
 import { Admin } from '../Pages/Admin'
 
@@ -11,7 +11,7 @@ const routes = [
     },
     {
         path: '/signin',
-        element: <Signin />,
+        element: <SignIn />,
     },
     {
         path: '/admin',
