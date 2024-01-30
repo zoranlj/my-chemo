@@ -1,6 +1,7 @@
+import React from 'react'
 import { signOut, getAuth } from 'firebase/auth'
 import Button from '@mui/material/Button'
-import React from 'react'
+
 export const Admin = () => {
     const auth = getAuth()
     async function handleSignOut() {

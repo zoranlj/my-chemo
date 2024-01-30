@@ -1,15 +1,17 @@
 import TodayFeel from '../Components/TodayFeel'
-import data from '../data/data'
 import LineChart from '../Components/LineChart'
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../Context/AuthContext'
 import useSetHeaderHeight from '../Hooks/useSetHeaderHeight'
+
 export const Home = () => {
     useSetHeaderHeight()
-
+    const { series } = useContext(Context)
+    console.log(series)
     return (
         <div className="container">
             <header>
-                <TodayFeel data={data} />
+                <TodayFeel data={series} />
                 <h6>
                     <span className="allGood">1 - All good</span>,{' '}
                     <span className="mild">2 - Mild</span>,{' '}
@@ -19,7 +21,7 @@ export const Home = () => {
                 </h6>
             </header>
             <main className="lineChartWrapper">
-                <LineChart data={data} />
+                <LineChart data={series} />
             </main>
         </div>
     )
