@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { AuthContext } from './Context/AuthContext'
 import routes from './Routes'
