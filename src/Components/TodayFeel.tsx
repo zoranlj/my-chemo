@@ -1,13 +1,15 @@
 import React from 'react'
 import { last } from 'lodash'
 import { Serie } from '@nivo/line'
+import { CircularProgress } from '@mui/material'
 
 const TodayFeel = ({ data }: { data: Serie[] }) => {
     const todayFeel = last(last(data)?.data)?.y || 0
 
     return (
         <>
-            {((todayFeel >= 1 && todayFeel < 2) || !data.length) && (
+            {!data.length && <h1><CircularProgress /> </h1>}
+            {((todayFeel >= 1 && todayFeel < 2)) && (
                 <h1 className="allGood">All good</h1>
             )}
             {todayFeel >= 2 && todayFeel < 3 && <h1 className="mild">Mild</h1>}
