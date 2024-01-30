@@ -1,31 +1,11 @@
 import React from 'react'
 import './App.scss'
-import { Home } from './Pages/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Protected } from './Pages/Protected'
-import { Signin } from './Pages/Signin'
 import { AuthContext } from './Context/AuthContext'
+import routes from './Routes'
 
 function App() {
-    const router = createBrowserRouter([
-        {
-            path: '/',
-            element: <Home />,
-        },
-        {
-            path: '/home',
-            element: (
-                <Protected>
-                    <Home />
-                </Protected>
-            ),
-        },
-        {
-            path: '/signin',
-            element: <Signin></Signin>,
-        },
-    ])
-
+    const router = createBrowserRouter(routes)
     return (
         <AuthContext>
             <RouterProvider router={router}></RouterProvider>

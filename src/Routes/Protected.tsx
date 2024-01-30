@@ -4,8 +4,7 @@ import { Context } from '../Context/AuthContext'
 
 export function Protected({ children }: { children: ReactElement }) {
     const { user } = useContext(Context)
-
-    if (!user) {
+    if (!user.uid) {
         return <Navigate to="/signin" replace />
     } else {
         return children
