@@ -8,7 +8,7 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
 
     return (
         <>
-            {!data.length && <h1><CircularProgress /> </h1>}
+            {!data.length && <h1><CircularProgress /></h1>}
             {((todayFeel >= 1 && todayFeel < 2)) && (
                 <h1 className="allGood">All good</h1>
             )}
