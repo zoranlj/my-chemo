@@ -1,10 +1,10 @@
 import {
     createContext,
-    useState,
-    useEffect,
-    ReactElement,
     Dispatch,
+    ReactElement,
     SetStateAction,
+    useEffect,
+    useState,
 } from 'react'
 import { getAuth, onAuthStateChanged, Unsubscribe, User } from 'firebase/auth'
 import { getDatabase, onValue, ref } from 'firebase/database'
@@ -14,7 +14,7 @@ import { addAverage } from '../data/data'
 type ValueProp = {
     user: User
     setUser: Dispatch<SetStateAction<User>>
-    series: Serie[],
+    series: Serie[]
 }
 export const Context = createContext({} as ValueProp)
 
@@ -23,16 +23,16 @@ export const AuthContext = ({ children }: { children: ReactElement }) => {
     const [user, setUser] = useState({} as User)
     const [series, setSeries] = useState<Serie[]>([])
     const [loading, setLoading] = useState(true)
-    const db = getDatabase();
+    const db = getDatabase()
 
-    const starCountRef = ref(db, 'series/');
+    const starCountRef = ref(db, 'series/')
 
     useEffect(() => {
         onValue(starCountRef, (snapshot) => {
-            const data = snapshot.val();
-            setSeries(addAverage(data));
-        });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+            const data = snapshot.val()
+            setSeries(addAverage(data))
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

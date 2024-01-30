@@ -86,7 +86,9 @@ export const SignIn = () => {
                             name="email"
                             autoComplete="email"
                             autoFocus
-                            onChange={(e) => {setEmail(e.target.value)}}
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
                         />
                         <TextField
                             margin="normal"
@@ -97,7 +99,9 @@ export const SignIn = () => {
                             type="password"
                             id="password"
                             autoComplete="password"
-                            onChange={(e) => {setPassword(e.target.value)}}
+                            onChange={(e) => {
+                                setPassword(e.target.value)
+                            }}
                         />
                         <Button
                             type="submit"
