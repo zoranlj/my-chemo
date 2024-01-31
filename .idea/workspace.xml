@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cdf838a-e59c-401e-b333-b68e6b5268fe" name="Changes" comment="api" />
+    <list default="true" id="4cdf838a-e59c-401e-b333-b68e6b5268fe" name="Changes" comment="workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Context/AuthContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Admin.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Admin.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Admin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +91,7 @@
       <workItem from="1706623117199" duration="4139000" />
       <workItem from="1706628133139" duration="5351000" />
       <workItem from="1706644140914" duration="727000" />
+      <workItem from="1706645799677" duration="3906000" />
     </task>
     <task id="LOCAL-00001" summary="mui and signin form added">
       <option name="closed" value="true" />
@@ -198,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706644515054</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="workspace.xml">
+      <option name="closed" value="true" />
+      <created>1706645818800</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706645818800</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +241,7 @@
     <MESSAGE value="TodayFeel fix" />
     <MESSAGE value="material-react-table library added" />
     <MESSAGE value="api" />
-    <option name="LAST_COMMIT_MESSAGE" value="api" />
+    <MESSAGE value="workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml" />
   </component>
 </project>

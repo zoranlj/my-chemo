@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
+import {
+    MaterialReactTable,
+    useMaterialReactTable,
+    type MRT_ColumnDef,
+} from 'material-react-table';
 import { getAuth, signOut } from 'firebase/auth'
-import Button from '@mui/material/Button'
 import { Context } from '../Context/AuthContext'
+import { Serie } from '@nivo/line'
+import { Button } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import classes from './Admin.module.scss'
 
 export const Admin = () => {
     const auth = getAuth()
-    const { series } = useContext(Context)
-    console.log(series)
+    const { series: data } = useContext(Context)
 
     const handleSignOut = async () => {
         try {
@@ -17,20 +23,66 @@ export const Admin = () => {
         }
     }
 
-    return (
-        <div className={classes.container}>
-            <h1>This is the admin in page</h1>
+    const columns = useMemo<MRT_ColumnDef<Serie>[]>(
+        () => [
+            {
+                accessorKey: 'id',
+                header: 'Side Effect',
+            },
+            {
+                accessorKey: 'x',
+                header: 'Date',
+            },
+            {
+                accessorKey: 'y',
+                header: 'Intensity',
+            },
+        ],
+        [],
+    );
 
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                onClick={() => {
-                    void handleSignOut()
-                }}
-            >
-                Sign Out
-            </Button>
-        </div>
-    )
-}
+    const table = useMaterialReactTable({
+        columns,
+        data,
+        enableExpandAll: true,
+        enableExpanding: true,
+        enablePagination: true,
+        enableFilters: false,
+        enableSorting: false,
+        enableColumnActions: false,
+        enableBottomToolbar: false,
+        getSubRows: (row) => row.data as Serie[],
+        paginateExpandedRows: false,
+        defaultColumn: {
+            size: 50, //default size is usually 180
+        },
+        autoResetExpanded: true
+    });
+
+    const tableTheme = useMemo(
+        () =>
+            createTheme({
+                palette: {
+                    mode: "dark"
+                    },
+            }),
+        [],
+    );
+
+    return <div className={classes.container}>
+        <ThemeProvider theme={tableTheme}>
+            <MaterialReactTable table={table} />
+        </ThemeProvider>
+        <Button
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+            onClick={() => {
+                void handleSignOut()
+            }}
+        >
+            Sign Out
+        </Button>
+    </div>
+};
+

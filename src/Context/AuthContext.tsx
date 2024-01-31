@@ -9,7 +9,6 @@ import {
 import { getAuth, onAuthStateChanged, Unsubscribe, User } from 'firebase/auth'
 import { getDatabase, onValue, ref } from 'firebase/database'
 import { Serie } from '@nivo/line'
-import { addAverage } from '../data/data'
 
 type ValueProp = {
     user: User
@@ -30,7 +29,7 @@ export const AuthContext = ({ children }: { children: ReactElement }) => {
     useEffect(() => {
         onValue(starCountRef, (snapshot) => {
             const data = snapshot.val()
-            setSeries(addAverage(data))
+            setSeries(data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
