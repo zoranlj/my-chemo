@@ -1,13 +1,14 @@
 import React, { useContext, useMemo } from 'react'
 import {
     MaterialReactTable,
-    useMaterialReactTable,
     type MRT_ColumnDef,
-} from 'material-react-table';
+    MRT_EditActionButtons,
+    useMaterialReactTable,
+} from 'material-react-table'
 import { getAuth, signOut } from 'firebase/auth'
 import { Context } from '../Context/AuthContext'
 import { Serie } from '@nivo/line'
-import { Button } from '@mui/material';
+import { Button, DialogActions, DialogContent } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import classes from './Admin.module.scss'
 
@@ -28,6 +29,8 @@ export const Admin = () => {
             {
                 accessorKey: 'id',
                 header: 'Side Effect',
+                editVariant: 'select',
+                editSelectOptions: ['Nerve pain', 'Abdominal Pain'],
             },
             {
                 accessorKey: 'x',
@@ -39,7 +42,7 @@ export const Admin = () => {
             },
         ],
         [],
-    );
+    )
 
     const table = useMaterialReactTable({
         columns,
@@ -63,21 +66,48 @@ export const Admin = () => {
             },
         },
         initialState: { density: 'compact' },
-    });
+        onCreatingRowSave: (data) => {
+            console.log(data.values)
+        },
+        renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
+            <>
+                <DialogContent
+                    sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+                >
+                    {internalEditComponents} {/* or render custom edit components here */}
+                </DialogContent>
+                <DialogActions>
+                    {/* eslint-disable-next-line react/jsx-pascal-case */}
+                    <MRT_EditActionButtons variant="text" table={table} row={row} />
+                </DialogActions>
+            </>
+        ),
+        renderTopToolbarCustomActions: ({ table }) => (
+            <Button
+                variant="text"
+                onClick={() => {
+                    table.setCreatingRow(true) //simplest way to open the create row modal with no default values
+                }}
+            >
+                Add
+            </Button>
+        ),
+    })
 
     const tableTheme = useMemo(
         () =>
             createTheme({
                 palette: {
-                    mode: "dark"
-                    },
+                    mode: 'dark',
+                },
             }),
         [],
-    );
+    )
 
     return <div className={classes.container}>
         <ThemeProvider theme={tableTheme}>
-            <MaterialReactTable table={table} />
+            <MaterialReactTable table={table}
+            />
         </ThemeProvider>
         <Button
             type="submit"
@@ -90,5 +120,5 @@ export const Admin = () => {
             Sign Out
         </Button>
     </div>
-};
+}
 
