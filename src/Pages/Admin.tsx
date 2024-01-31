@@ -54,9 +54,15 @@ export const Admin = () => {
         getSubRows: (row) => row.data as Serie[],
         paginateExpandedRows: false,
         defaultColumn: {
-            size: 50, //default size is usually 180
+            size: 100, //default size is usually 180
         },
-        autoResetExpanded: true
+        displayColumnDefOptions: {
+            'mrt-row-expand': {
+                size: 40,
+                grow: false,
+            },
+        },
+        initialState: { density: 'compact' },
     });
 
     const tableTheme = useMemo(
