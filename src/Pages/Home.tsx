@@ -4,7 +4,7 @@ import React, { useContext } from 'react'
 import { Context } from '../Context/AuthContext'
 import useSetHeaderHeight from '../Hooks/useSetHeaderHeight'
 import classes from './Home.module.scss'
-import { addAverage } from '../data/data'
+import { addAverage } from '../Utils/data'
 
 export const Home = () => {
     useSetHeaderHeight()
