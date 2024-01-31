@@ -2,6 +2,7 @@ import { Serie } from '@nivo/line'
 import { forEach, sumBy } from 'lodash'
 
 export const addAverage = (series: Serie[]) => {
+    if (!series.length) return [];
     const averageSerie: Serie = {
         id: 'Average',
         data: [],
