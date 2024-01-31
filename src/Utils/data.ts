@@ -3,11 +3,11 @@ import { forEach, sumBy } from 'lodash'
 
 export const addAverage = (series: Serie[]) => {
     const averageSerie: Serie = {
-        id: 'average',
+        id: 'Average',
         data: [],
         color: '#FFF',
     }
-    forEach(series[0].data, (sideEffect, index) => {
+    forEach(series[0]?.data, (sideEffect, index) => {
         averageSerie.data.push({
             x: sideEffect.x,
             y: sumBy(series, (s) => s.data[index].y as number) / series.length,
