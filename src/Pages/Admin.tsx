@@ -11,9 +11,12 @@ import { Serie } from '@nivo/line'
 import { Button, DialogActions, DialogContent } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import classes from './Admin.module.scss'
+import { getDatabase, push, ref, set } from 'firebase/database'
+import { findIndex, map, toNumber } from 'lodash'
 
 export const Admin = () => {
     const auth = getAuth()
+    const db = getDatabase();
     const { series: data } = useContext(Context)
 
     const handleSignOut = async () => {
@@ -30,7 +33,7 @@ export const Admin = () => {
                 accessorKey: 'id',
                 header: 'Side Effect',
                 editVariant: 'select',
-                editSelectOptions: ['Nerve pain', 'Abdominal Pain'],
+                editSelectOptions: map(data, (d) => d.id as string),
             },
             {
                 accessorKey: 'x',
@@ -41,7 +44,7 @@ export const Admin = () => {
                 header: 'Intensity',
             },
         ],
-        [],
+        [data],
     )
 
     const table = useMaterialReactTable({
@@ -66,8 +69,17 @@ export const Admin = () => {
             },
         },
         initialState: { density: 'compact' },
-        onCreatingRowSave: (data) => {
-            console.log(data.values)
+        onCreatingRowSave: (saveData) => {
+            // console.log(data, saveData.values.id)
+            const indexOfSerie = findIndex(data, (d) => {
+                return d.id === saveData.values.id
+            });
+            const postListRef = ref(db, `series/${indexOfSerie}/data`);
+            const newPostRef = push(postListRef);
+            void set(newPostRef, {
+                x: saveData.values.x,
+                y: toNumber(saveData.values.y)
+            });
         },
         renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
             <>
