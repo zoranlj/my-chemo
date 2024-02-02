@@ -46,15 +46,12 @@ export const Admin = () => {
     const handleOnEditingRowSave: MRT_TableOptions<Serie>['onEditingRowSave'] =
         async ({ values, table, row }) => {
             const path = `series/${row.getParentRow()?.index}/data/${values.key}`
-            console.log('row', row.getParentRow()?.index)
-            console.log('path', path)
-
             const updates = {}
-
             // @ts-ignore
             updates[path] = {
                 x: values.x,
                 y: toNumber(values.y),
+                id: values.id,
             }
             void update(ref(db), updates)
             table.setEditingRow(null) //exit editing mode
