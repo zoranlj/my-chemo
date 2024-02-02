@@ -10,7 +10,6 @@ import { getAuth, signOut } from 'firebase/auth'
 import { Context } from '../Context/AuthContext'
 import { Serie } from '@nivo/line'
 import { Button, DialogActions, DialogContent } from '@mui/material'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import classes from './Admin.module.scss'
 import { getDatabase, push, ref, set, update } from 'firebase/database'
 import { findIndex, map, toNumber } from 'lodash'
@@ -68,10 +67,14 @@ export const Admin = () => {
                 header: 'Side Effect',
                 editVariant: 'select',
                 editSelectOptions: map(series, (d) => d.id as string),
+                muiEditTextFieldProps: {
+                    required: true,
+                },
             },
             {
                 accessorKey: 'key',
                 header: 'Key',
+                enableEditing: false,
             },
             {
                 accessorKey: 'x',
@@ -174,21 +177,9 @@ export const Admin = () => {
         onEditingRowSave: handleOnEditingRowSave,
     })
 
-    const tableTheme = useMemo(
-        () =>
-            createTheme({
-                palette: {
-                    mode: 'dark',
-                },
-            }),
-        []
-    )
-
     return (
         <div className={classes.container}>
-            <ThemeProvider theme={tableTheme}>
-                <MaterialReactTable table={table} />
-            </ThemeProvider>
+            <MaterialReactTable table={table} />
             <Button
                 type="submit"
                 variant="contained"
