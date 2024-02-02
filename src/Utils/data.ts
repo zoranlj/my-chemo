@@ -2,7 +2,7 @@ import { Datum, Serie } from '@nivo/line'
 import { forEach, sumBy } from 'lodash'
 
 export const addAverage = (series: Serie[]) => {
-    if (!series.length) return [];
+    if (!series.length) return []
 
     const averageSerie: Serie = {
         id: 'Average',
@@ -18,4 +18,5 @@ export const addAverage = (series: Serie[]) => {
     return [...series, averageSerie]
 }
 
-export const objectToArray = (data: Datum[]) => Object.keys(data).map(key => ({ key, ...data[key as any] }));
+export const objectToArray = (data: Datum[]) =>
+    Object.keys(data).map((key) => ({ key, ...data[key as any] }))

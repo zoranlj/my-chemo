@@ -33,7 +33,7 @@ export const AuthContext = ({ children }: { children: ReactElement }) => {
             const data = map(snapshot.val() as Serie[], (serie) => {
                 return {
                     ...serie,
-                    data: objectToArray(serie.data)
+                    data: objectToArray(serie.data),
                 }
             })
             setSeries(data)
