@@ -30,9 +30,6 @@ const Copyright = (props: any) => {
     )
 }
 
-// TODO remove, this demo shouldn't need to reset the Theme.
-const defaultTheme = createTheme()
-
 export const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
