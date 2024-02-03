@@ -3,16 +3,19 @@ import {
     MaterialReactTable,
     type MRT_ColumnDef,
     MRT_EditActionButtons,
+    MRT_Row,
     MRT_TableOptions,
     useMaterialReactTable,
 } from 'material-react-table'
 import { getAuth, signOut } from 'firebase/auth'
 import { Context } from '../Context/AuthContext'
 import { Serie } from '@nivo/line'
-import { Button, DialogActions, DialogContent } from '@mui/material'
+import { Button, DialogActions, DialogContent, IconButton } from '@mui/material'
 import classes from './Admin.module.scss'
-import { getDatabase, push, ref, set, update } from 'firebase/database'
+import { getDatabase, push, ref, set, update, remove } from 'firebase/database'
 import { findIndex, map, toNumber } from 'lodash'
+import { Edit, Delete } from '@mui/icons-material'
+import Box from '@mui/material/Box'
 
 export const Admin = () => {
     const auth = getAuth()
@@ -56,6 +59,15 @@ export const Admin = () => {
             void update(ref(db), updates)
             table.setEditingRow(null) //exit editing mode
         }
+
+    const handleOnDeleteRow = (row: MRT_Row<Serie>) => {
+        const db = getDatabase()
+        const path = `series/${row.getParentRow()?.index}/data/${row.original.key}`
+        const rowRef = ref(db, path)
+        if (window.confirm('Are you sure you want to delete this user?')) {
+            void remove(rowRef)
+        }
+    }
 
     const columns = useMemo<MRT_ColumnDef<Serie>[]>(
         () => [
@@ -169,6 +181,19 @@ export const Admin = () => {
                     />
                 </DialogActions>
             </>
+        ),
+        renderRowActions: ({ row, table }) => (
+            <Box sx={{ display: 'flex', gap: '1rem' }}>
+                <IconButton onClick={() => table.setEditingRow(row)}>
+                    <Edit />
+                </IconButton>
+                <IconButton
+                    color="error"
+                    onClick={() => handleOnDeleteRow(row)}
+                >
+                    <Delete />
+                </IconButton>
+            </Box>
         ),
         onCreatingRowSave: handleOnCreatingRowSave,
         onEditingRowSave: handleOnEditingRowSave,
