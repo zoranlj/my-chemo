@@ -14,9 +14,7 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
                     <CircularProgress />
                 </h1>
             )}
-            {todayFeel >= 1 && todayFeel < 2 && (
-                <h1 className={classes.allGood}>All good</h1>
-            )}
+            {todayFeel < 2 && <h1 className={classes.allGood}>All good</h1>}
             {todayFeel >= 2 && todayFeel < 3 && (
                 <h1 className={classes.mild}>Mild</h1>
             )}

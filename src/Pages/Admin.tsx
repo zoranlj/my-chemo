@@ -32,15 +32,16 @@ export const Admin = () => {
 
     //CREATE action
     const handleOnCreatingRowSave: MRT_TableOptions<Serie>['onCreatingRowSave'] =
-        (saveData) => {
+        ({ values }) => {
             const indexOfSerie = findIndex(series, (d) => {
-                return d.id === saveData.values.id
+                return d.id === values.id
             })
             const postListRef = ref(db, `series/${indexOfSerie}/data`)
             const newPostRef = push(postListRef)
             void set(newPostRef, {
-                x: saveData.values.x,
-                y: toNumber(saveData.values.y),
+                x: values.x,
+                y: toNumber(values.y),
+                id: values.id,
             })
             table.setCreatingRow(null) //exit created mode
         }
