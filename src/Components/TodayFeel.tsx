@@ -14,17 +14,21 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
                     <CircularProgress />
                 </h1>
             )}
-            {todayFeel < 2 && <h1 className={classes.allGood}>All good</h1>}
-            {todayFeel >= 2 && todayFeel < 3 && (
+            {!!data.length && todayFeel < 2 && (
+                <h1 className={classes.allGood}>All good</h1>
+            )}
+            {!!data.length && todayFeel >= 2 && todayFeel < 3 && (
                 <h1 className={classes.mild}>Mild</h1>
             )}
-            {todayFeel >= 3 && todayFeel < 4 && (
+            {!!data.length && todayFeel >= 3 && todayFeel < 4 && (
                 <h1 className={classes.moderate}>Moderate</h1>
             )}
-            {todayFeel >= 4 && todayFeel < 5 && (
+            {!!data.length && todayFeel >= 4 && todayFeel < 5 && (
                 <h1 className={classes.severe}>Severe</h1>
             )}
-            {todayFeel >= 5 && <h1 className={classes.worst}>Worst</h1>}
+            {!!data.length && todayFeel >= 5 && (
+                <h1 className={classes.worst}>Worst</h1>
+            )}
         </>
     )
 }
