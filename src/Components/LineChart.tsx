@@ -28,7 +28,7 @@ const LineChart = ({ data }: { data: Serie[] }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Pain',
+            legend: 'Feeling',
             legendOffset: -40,
             legendPosition: 'middle',
         }}

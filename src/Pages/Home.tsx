@@ -15,11 +15,11 @@ export const Home = () => {
             <header>
                 <TodayFeel data={addAverage(series)} />
                 <h6>
-                    <span className={classes.good}>1 - All good</span>,{' '}
-                    <span className={classes.mild}>2 - Mild</span>,{' '}
-                    <span className={classes.moderate}>3 - Moderate</span>,{' '}
-                    <span className={classes.severe}>4 - Severe</span>,{' '}
-                    <span className={classes.worst}>5 - Worst</span>
+                    <span className={classes.good}>1 - good</span>,{' '}
+                    <span className={classes.mild}>2 - mild</span>,{' '}
+                    <span className={classes.moderate}>3 - moderate</span>,{' '}
+                    <span className={classes.severe}>4 - severe</span>,{' '}
+                    <span className={classes.worst}>5 - worst</span>
                 </h6>
             </header>
             <main className={classes.lineChartWrapper}>
