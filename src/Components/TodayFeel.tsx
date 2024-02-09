@@ -15,19 +15,19 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
                 </h1>
             )}
             {!!data.length && todayFeel < 2 && (
-                <h1 className={classes.allGood}>All good</h1>
+                <h1 className={classes.good}>Feeling good today</h1>
             )}
             {!!data.length && todayFeel >= 2 && todayFeel < 3 && (
-                <h1 className={classes.mild}>Mild</h1>
+                <h1 className={classes.mild}>Feeling mild today</h1>
             )}
             {!!data.length && todayFeel >= 3 && todayFeel < 4 && (
-                <h1 className={classes.moderate}>Moderate</h1>
+                <h1 className={classes.moderate}>Feeling moderate today</h1>
             )}
             {!!data.length && todayFeel >= 4 && todayFeel < 5 && (
-                <h1 className={classes.severe}>Severe</h1>
+                <h1 className={classes.severe}>Feeling severe today</h1>
             )}
             {!!data.length && todayFeel >= 5 && (
-                <h1 className={classes.worst}>Worst</h1>
+                <h1 className={classes.worst}>Feeling worst today</h1>
             )}
         </>
     )

@@ -15,7 +15,7 @@ export const Home = () => {
             <header>
                 <TodayFeel data={addAverage(series)} />
                 <h6>
-                    <span className={classes.allGood}>1 - All good</span>,{' '}
+                    <span className={classes.good}>1 - All good</span>,{' '}
                     <span className={classes.mild}>2 - Mild</span>,{' '}
                     <span className={classes.moderate}>3 - Moderate</span>,{' '}
                     <span className={classes.severe}>4 - Severe</span>,{' '}

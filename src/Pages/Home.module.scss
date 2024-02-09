@@ -7,20 +7,26 @@
     color: white;
     text-align: center;
 
+    header {
+        margin-top: 8px;
+    }
+
     h1 {
         min-height: 48px;
         margin: 16px 0 8px 0;
+        display: inline;
+        vertical-align: middle;
     }
 
     h6 {
-        margin: 0;
+        margin: 8px 0 0;
     }
 
     .lineChartWrapper {
         height: calc(100dvh - var(--sl-header-height));
     }
 
-    .allGood {
+    .good {
         color: lightseagreen;
     }
 
