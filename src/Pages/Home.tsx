@@ -15,10 +15,12 @@ export const Home = () => {
             <header>
                 <TodayFeel data={addAverage(series)} />
                 <h6>
-                    <span className={classes.good}>1 - good</span>,{' '}
-                    <span className={classes.mild}>2 - mild</span>,{' '}
-                    <span className={classes.moderate}>3 - moderate</span>,{' '}
-                    <span className={classes.severe}>4 - severe</span>,{' '}
+                    <span className={classes.good}>1 - good &nbsp;</span>
+                    <span className={classes.mild}>2 - mild &nbsp;</span>
+                    <span className={classes.moderate}>
+                        3 - moderate &nbsp;
+                    </span>
+                    <span className={classes.severe}>4 - severe &nbsp;</span>
                     <span className={classes.worst}>5 - worst</span>
                 </h6>
             </header>

@@ -9,24 +9,20 @@ const TodayFeel = ({ data }: { data: Serie[] }) => {
 
     return (
         <>
-            {!data.length && (
-                <h1>
-                    <CircularProgress />
-                </h1>
-            )}
-            {!!data.length && todayFeel < 2 && (
+            {!todayFeel && <CircularProgress />}
+            {!!todayFeel && todayFeel < 2 && (
                 <h1 className={classes.good}>Feeling good today</h1>
             )}
-            {!!data.length && todayFeel >= 2 && todayFeel < 3 && (
+            {!!todayFeel && todayFeel >= 2 && todayFeel < 3 && (
                 <h1 className={classes.mild}>Feeling mild today</h1>
             )}
-            {!!data.length && todayFeel >= 3 && todayFeel < 4 && (
+            {!!todayFeel && todayFeel >= 3 && todayFeel < 4 && (
                 <h1 className={classes.moderate}>Feeling moderate today</h1>
             )}
-            {!!data.length && todayFeel >= 4 && todayFeel < 5 && (
+            {!!todayFeel && todayFeel >= 4 && todayFeel < 5 && (
                 <h1 className={classes.severe}>Feeling severe today</h1>
             )}
-            {!!data.length && todayFeel >= 5 && (
+            {!!todayFeel && todayFeel >= 5 && (
                 <h1 className={classes.worst}>Feeling worst today</h1>
             )}
         </>
