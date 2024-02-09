@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -17,9 +18,11 @@ const firebaseConfig = {
     storageBucket: 'my-chemo.appspot.com',
     messagingSenderId: '1010277893131',
     appId: '1:1010277893131:web:9d0341c0f10b8a56dcb30e',
+    measurementId: 'G-KC996KPJ40',
 }
 
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
+getAnalytics(app)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
