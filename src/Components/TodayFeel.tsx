@@ -1,29 +1,27 @@
 import React from 'react'
-import { last } from 'lodash'
-import { Serie } from '@nivo/line'
 import { CircularProgress } from '@mui/material'
+import { Serie } from '@nivo/line'
+import { last, toString } from 'lodash'
 import classes from '../Pages/Home.module.scss'
 
-const TodayFeel = ({ data }: { data: Serie[] }) => {
-    const todayFeel = last(last(data)?.data)?.y || 0
+const feelings = [
+    { threshold: 1, text: 'Feeling good today', class: 'good' },
+    { threshold: 2, text: 'Feeling mild today', class: 'mild' },
+    { threshold: 3, text: 'Feeling moderate today', class: 'moderate' },
+    { threshold: 4, text: 'Feeling severe today', class: 'severe' },
+    { threshold: 5, text: 'Feeling worst today', class: 'worst' },
+]
 
+const TodayFeel: React.FC<{ data: Serie[] }> = ({ data }) => {
+    const todayFeel = Math.floor(last(last(data)?.data)?.y as number)
+    const feeling = feelings.find((f) => f.threshold >= todayFeel)
     return (
         <>
             {!todayFeel && <CircularProgress />}
-            {!!todayFeel && todayFeel < 2 && (
-                <h1 className={classes.good}>Feeling good today</h1>
-            )}
-            {!!todayFeel && todayFeel >= 2 && todayFeel < 3 && (
-                <h1 className={classes.mild}>Feeling mild today</h1>
-            )}
-            {!!todayFeel && todayFeel >= 3 && todayFeel < 4 && (
-                <h1 className={classes.moderate}>Feeling moderate today</h1>
-            )}
-            {!!todayFeel && todayFeel >= 4 && todayFeel < 5 && (
-                <h1 className={classes.severe}>Feeling severe today</h1>
-            )}
-            {!!todayFeel && todayFeel >= 5 && (
-                <h1 className={classes.worst}>Feeling worst today</h1>
+            {!!todayFeel && (
+                <h1 className={classes[toString(feeling?.class)]}>
+                    {feeling?.text}
+                </h1>
             )}
         </>
     )
