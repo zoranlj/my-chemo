@@ -29,6 +29,10 @@ const Copyright = (props: any) => {
     )
 }
 
+/**
+ * Represents a sign-in component.
+ * @constructor
+ */
 export const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
