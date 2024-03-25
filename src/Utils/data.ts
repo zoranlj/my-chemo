@@ -1,5 +1,6 @@
 import { Datum, Serie } from '@nivo/line'
 import { forEach, sumBy } from 'lodash'
+import { addDays, format, isBefore, isThursday, isToday } from 'date-fns'
 
 /**
  * Calculates the average of the data in each series and adds a new series called 'Average' to the given series array.
@@ -33,3 +34,23 @@ export const addAverage = (series: Serie[]): Serie[] => {
  */
 export const objectToArray = (data: Datum[]): object[] =>
     Object.keys(data).map((key) => ({ key, ...data[key as any] }))
+
+/**
+ * Returns an array of past and current Thursdays.
+ *
+ * @returns {string[]} An array of formatted strings representing the past and current Thursdays.
+ */
+export const getThursdays = (): string[] => {
+    let currentDate = new Date(2024, 0, 18) //18. January 2024
+    const today = new Date()
+    let thursdays = []
+
+    while (isBefore(currentDate, today) || isToday(currentDate)) {
+        if (isThursday(currentDate)) {
+            thursdays.push(format(currentDate, 'dd.MM.yyyy.'))
+        }
+        currentDate = addDays(currentDate, 1)
+    }
+
+    return thursdays
+}

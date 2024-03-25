@@ -1,5 +1,6 @@
 import { ResponsiveLine, Serie } from '@nivo/line'
 import nivo from '../Theme/nivo'
+import { getThursdays } from '../Utils/data'
 
 const LineChart = ({ data }: { data: Serie[] }) => (
     <ResponsiveLine
@@ -23,12 +24,7 @@ const LineChart = ({ data }: { data: Serie[] }) => (
             legend: 'Date',
             legendOffset: 80,
             legendPosition: 'middle',
-            tickValues: [
-                '18.01.2024.',
-                '08.02.2024.',
-                '28.02.2024.',
-                '21.03.2024.',
-            ],
+            tickValues: getThursdays(),
         }}
         axisLeft={{
             tickSize: 5,
