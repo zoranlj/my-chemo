@@ -23,6 +23,12 @@ const LineChart = ({ data }: { data: Serie[] }) => (
             legend: 'Date',
             legendOffset: 80,
             legendPosition: 'middle',
+            tickValues: [
+                '18.01.2024.',
+                '08.02.2024.',
+                '28.02.2024.',
+                '21.03.2024.',
+            ],
         }}
         axisLeft={{
             tickSize: 5,
