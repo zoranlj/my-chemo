@@ -18,10 +18,11 @@ const TodayFeel: React.FC<{ data: Serie[] }> = ({ data }) => {
      *
      * @type {number}
      * @example
-     * // Usage
-     * const todayFeel = Math.floor(last(last(data)?.data)?.y as number);
      */
-    const todayFeel: number = Math.floor(last(last(data)?.data)?.y as number)
+    const todayFeel: number = Math.max(
+        last(data[0]?.data)?.y as number,
+        last(data[1]?.data)?.y as number
+    )
     const feeling = feelings.find((f) => f.threshold >= todayFeel)
     return (
         <>

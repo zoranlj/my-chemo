@@ -4,7 +4,6 @@ import React, { useContext } from 'react'
 import { Context } from '../Context/AuthContext'
 import useSetHeaderHeight from '../Hooks/useSetHeaderHeight'
 import classes from './Home.module.scss'
-import { addAverage } from '../Utils/data'
 
 export const Home = () => {
     useSetHeaderHeight()
@@ -13,7 +12,7 @@ export const Home = () => {
     return (
         <div className={classes.container}>
             <header>
-                <TodayFeel data={addAverage(series)} />
+                <TodayFeel data={series} />
                 <h6>
                     <span className={classes.good}>1 - good &nbsp;</span>
                     <span className={classes.mild}>2 - mild &nbsp;</span>
@@ -25,7 +24,7 @@ export const Home = () => {
                 </h6>
             </header>
             <main className={classes.lineChartWrapper}>
-                <LineChart data={addAverage(series)} />
+                <LineChart data={series} />
             </main>
         </div>
     )
